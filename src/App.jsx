@@ -79,13 +79,15 @@ export default function App(){
       <main>
         <p>Popular Movies</p>
         <div className="content">
-         <div className="movie-list">
+          {isLoading?(<Loader/>):errorMessage?(<ErrorMessage Message={errorMessage}/>):(
+            <div className="movie-list">
             {
               movieList.map((movie)=>(
                 <MovieCard key={movie.id} Movie={movie}/>
               ))
             }
          </div>
+          )}
         </div>
       </main>
      

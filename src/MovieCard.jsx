@@ -3,7 +3,7 @@ import rating from './assets/Rating.svg'
 export default function MovieCard({Movie:{title,original_language,poster_path,vote_average,release_date}}){
     return(
         <div className='card'>
-                <img src = {poster_path?`https://image.tmdb.org/t/p/w200/${poster_path}`:no_poster} className='poster' />
+                <img src = {poster_path?`https://image.tmdb.org/t/p/w500/${poster_path}`:no_poster} className='poster' />
             <p className="title">{title}</p>
             <div className="bottom">
                 <img className="star" src={rating}/>
