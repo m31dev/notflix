@@ -9,8 +9,7 @@ export default function Loader(){
         size={20}
         aria-label="Loading Spinner"
         data-testid="loader"
-      />
-        
+        /> 
         </>
     )
 }

@@ -3,6 +3,8 @@ import logo from './assets/NOTFLIX.svg'
 import halo from './assets/halo.svg'
 import './App.css'
 import Search from "./Search"
+import Loader from "./Loader"
+import ErrorMessage from "./ErrorMessage"
 
 
 
@@ -75,7 +77,7 @@ export default function App(){
       <main>
         <p>Popular Movies</p>
         <div className="content">
-
+        
         </div>
       </main>
      

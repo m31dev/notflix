@@ -82,6 +82,18 @@ main{
   object-fit: fill;
 }
 .content{
-  
+  width:100%;
+  max-width: 120rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  min-height: 20rem;
+
+}
+
+.err{
+  width:10rem;
 }
 
