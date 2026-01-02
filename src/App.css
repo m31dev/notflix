@@ -33,3 +33,33 @@ h3{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.search-input{
+  width:65rem;
+  height: 5.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  background-color:rgba(60, 80, 248,0.2);
+  padding: 0 2rem;
+  border-radius: 5px;
+
+}
+input{
+  border:none;
+  font-size: 1.6rem;
+  background-color: transparent;
+  color: #d8dae1;
+  flex: 1;
+  font-weight: 500;
+  font-family: 'DM Sans';
+}
+
+input:focus{
+  color:white;
+  outline: none;
+}
+.search-icon{
+  width:2rem;
+}
