@@ -1,4 +1,4 @@
-import search from './assets/search.svg'
+import search from '../assets/search.svg'
 
 export default function Search({searchTerm,setSearchTerm}){
     return(

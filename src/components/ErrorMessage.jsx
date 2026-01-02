@@ -1,4 +1,4 @@
-import error from './assets/error.svg'
+import error from '../assets/error.svg'
 export default function ErrorMessage({Message}){
     return(
         <div className="error-div">

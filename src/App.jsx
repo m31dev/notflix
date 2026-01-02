@@ -2,10 +2,10 @@ import React, { use, useEffect, useState } from "react"
 import logo from './assets/NOTFLIX.svg'
 import halo from './assets/halo.svg'
 import './App.css'
-import Search from "./Search"
-import Loader from "./Loader"
-import ErrorMessage from "./ErrorMessage"
-import MovieCard from "./MovieCard"
+import Search from "./components/Search"
+import Loader from "./components/Loader"
+import ErrorMessage from "./components/ErrorMessage"
+import MovieCard from "./components/MovieCard"
 
 
 

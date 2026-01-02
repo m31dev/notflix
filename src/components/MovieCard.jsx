@@ -1,5 +1,5 @@
-import no_poster from './assets/NoPoster.svg'
-import rating from './assets/Rating.svg'
+import no_poster from '../assets/NoPoster.svg'
+import rating from '../assets/Rating.svg'
 export default function MovieCard({Movie:{title,original_language,poster_path,vote_average,release_date}}){
     return(
         <div className='card'>
