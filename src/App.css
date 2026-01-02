@@ -63,3 +63,22 @@ input:focus{
 .search-icon{
   width:2rem;
 }
+
+main{
+  width: 90%;
+  max-width: 120rem;
+  margin:0 auto;
+  margin-bottom: 10rem;
+}
+
+.halo{
+  width:90%;
+  max-width: 150rem;
+  margin: 0 auto;
+  margin-top:15rem;
+}
+.halo-image{
+  width:100%;
+  object-fit: fill;
+}
+
