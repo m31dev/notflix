@@ -23,7 +23,8 @@ export default function App(){
   const [isLoading, setIsLoading] = useState(false)
 
   const getMovies = async() =>{
-
+    setErrorMessage('')
+    setIsLoading(true)
     const endpoint = `${BASE_URL}?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`
 
     try{
@@ -35,12 +36,14 @@ export default function App(){
     if(data.results.length === 0){
       setErrorMessage('Movies not found')
     }
-    
+
     setMovieList(data.results)
 
     }catch(error){
       console.error(`Failed to fetch movies:`,error)
       setErrorMessage(error.message)
+    }finally{
+      setIsLoading(false)
     }
     
     
@@ -69,6 +72,8 @@ export default function App(){
       <main>
         <p>Popular Movies</p>
         <p>{errorMessage}</p>
+        {isLoading:
+        }
       </main>
      
      
