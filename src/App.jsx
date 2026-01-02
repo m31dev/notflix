@@ -11,7 +11,7 @@ import MovieCard from "./components/MovieCard"
 
 
 const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-const BASE_URL = `https://api.themoviedb.org/3/discover/movie`
+const BASE_URL = `https://api.themoviedb.org/3`
 
 const API_HEADER = {
   method: 'GET',
@@ -32,7 +32,7 @@ export default function App(){
     setErrorMessage('')
     setIsLoading(true)
 
-    const endpoint = query?`${BASE_URL}?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1`:`${BASE_URL}?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`
+    const endpoint = query?`${BASE_URL}/search/movie?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1`:`${BASE_URL}/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`
 
     try{
       const response = await fetch(endpoint,API_HEADER);
