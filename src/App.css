@@ -1,0 +1,35 @@
+header{
+  background-image: url('./assets/BG.svg');
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+h2{
+  font-size: 5rem;
+  font-weight: 800;
+  margin-top: 5rem;
+   text-align: center;
+}
+h3{
+  font-size: 3.5rem;
+  text-align: center;
+  
+}
+
+.logo{
+  width: 22rem;
+  margin: 18rem 0;
+}
+.netflix{
+  font-family: 'Gobold',sans-serif;
+  color:#C40015;
+  font-size: 4rem;
+}
+.movies{
+  font-family: 'DM Sans',sans-serif;
+  background: linear-gradient(90deg, #3C50F8, #C40015);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
