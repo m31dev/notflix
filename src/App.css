@@ -96,6 +96,18 @@ main{
   width:10rem;
 }
 
+.error-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-div p{
+  font-size: 1.6rem;
+  margin-top: 1.2rem;
+}
+
 .card{
   padding:1.5rem;
   border-radius: 1rem;

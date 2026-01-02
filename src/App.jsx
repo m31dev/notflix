@@ -6,6 +6,7 @@ import Search from "./components/Search"
 import Loader from "./components/Loader"
 import ErrorMessage from "./components/ErrorMessage"
 import MovieCard from "./components/MovieCard"
+import useDebounce from "./components/useDebounce"
 
 
 
@@ -27,12 +28,15 @@ export default function App(){
   const [errorMessage, setErrorMessage] = useState('');
   const [movieList,setMovieList] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
   const getMovies = async(query) =>{
     setErrorMessage('')
     setIsLoading(true)
 
-    const endpoint = query?`${BASE_URL}/search/movie?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1`:`${BASE_URL}/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`
+    const endpoint = query && query.trim !== ''?`${BASE_URL}/search/movie?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1`:`${BASE_URL}/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`
+
 
     try{
       const response = await fetch(endpoint,API_HEADER);
@@ -41,7 +45,9 @@ export default function App(){
     }
     const data = await response.json()
     if(data.results.length === 0){
-      setErrorMessage('Movies not found')
+      setErrorMessage('Movies Not Found')
+      setMovieList([])
+      return
     }
 
     console.log(data.results)
@@ -60,8 +66,8 @@ export default function App(){
   }
 
   useEffect(()=>{
-    getMovies(searchTerm)
-  },[searchTerm])
+    getMovies(debouncedSearchTerm)
+  },[debouncedSearchTerm])
 
   return(
     <div>
