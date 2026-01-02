@@ -4,6 +4,9 @@ import halo from './assets/halo.svg'
 import './App.css'
 import Search from "./Search"
 
+
+
+
 const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const BASE_URL = `https://api.themoviedb.org/3/discover/movie`
 
@@ -71,9 +74,9 @@ export default function App(){
       
       <main>
         <p>Popular Movies</p>
-        <p>{errorMessage}</p>
-        {isLoading:
-        }
+        <div className="content">
+
+        </div>
       </main>
      
      
