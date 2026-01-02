@@ -1,11 +1,60 @@
-import React, { useState } from "react"
+import React, { use, useEffect, useState } from "react"
 import logo from './assets/NOTFLIX.svg'
 import halo from './assets/halo.svg'
 import './App.css'
 import Search from "./Search"
 
+const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+const BASE_URL = `https://api.themoviedb.org/3/discover/movie`
+
+const API_HEADER = {
+  method: 'GET',
+  headers:{
+    'accept':'application/json',
+    'Authorization':`Bearer ${TMDB_API_KEY}`
+  }
+}
+
+
 export default function App(){
   const [searchTerm,setSearchTerm] = useState('')
+  const [errorMessage, setErrorMessage] = useState('');
+  const [movieList,setMovieList] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+
+  const getMovies = async()=>{
+     const endpoint = `${BASE_URL}?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`
+
+     try{
+        const response = await fetch(endpoint,API_HEADER)
+        if(!response.ok){
+          throw new Error('Failed to get movies')
+        }
+        const data = await response.json()
+
+        if(data.results.length = 0){
+          setErrorMessage('No movies found')
+          return
+        }
+        console.log(data.results)
+        setMovieList(data.results)
+      
+        
+
+     }catch(error){
+        console.error(`Failed to get movies:`,error)
+        setErrorMessage(error.message)
+     }
+      finally{
+        setIsLoading(false)
+      }
+  }
+
+  useEffect(()=>{
+    getMovies()
+  },[])
+
+
   return(
     <div>
       <header>
