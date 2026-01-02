@@ -22,38 +22,35 @@ export default function App(){
   const [movieList,setMovieList] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const getMovies = async()=>{
-     const endpoint = `${BASE_URL}?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`
+  const getMovies = async() =>{
 
-     try{
-        const response = await fetch(endpoint,API_HEADER)
-        if(!response.ok){
-          throw new Error('Failed to get movies')
-        }
-        const data = await response.json()
+    const endpoint = `${BASE_URL}?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`
 
-        if(data.results.length = 0){
-          setErrorMessage('No movies found')
-          return
-        }
-        console.log(data.results)
-        setMovieList(data.results)
-      
-        
+    try{
+      const response = await fetch(endpoint,API_HEADER);
+    if(!response.ok){
+      throw new Error('There was a problem getting movies')
+    }
+    const data = await response.json()
+    if(data.results.length === 0){
+      setErrorMessage('Movies not found')
+    }
+    
+    setMovieList(data.results)
 
-     }catch(error){
-        console.error(`Failed to get movies:`,error)
-        setErrorMessage(error.message)
-     }
-      finally{
-        setIsLoading(false)
-      }
+    }catch(error){
+      console.error(`Failed to fetch movies:`,error)
+      setErrorMessage(error.message)
+    }
+    
+    
+
+
   }
 
   useEffect(()=>{
     getMovies()
   },[])
-
 
   return(
     <div>
@@ -71,6 +68,7 @@ export default function App(){
       
       <main>
         <p>Popular Movies</p>
+        <p>{errorMessage}</p>
       </main>
      
      
