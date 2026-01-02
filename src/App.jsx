@@ -5,6 +5,7 @@ import './App.css'
 import Search from "./Search"
 import Loader from "./Loader"
 import ErrorMessage from "./ErrorMessage"
+import MovieCard from "./MovieCard"
 
 
 
@@ -42,6 +43,7 @@ export default function App(){
       setErrorMessage('Movies not found')
     }
 
+    console.log(data.results)
     setMovieList(data.results)
 
     }catch(error){
@@ -77,7 +79,13 @@ export default function App(){
       <main>
         <p>Popular Movies</p>
         <div className="content">
-        
+         <div className="movie-list">
+            {
+              movieList.map((movie)=>(
+                <MovieCard key={movie.id} Movie={movie}/>
+              ))
+            }
+         </div>
         </div>
       </main>
      
