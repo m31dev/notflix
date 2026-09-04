@@ -2,7 +2,7 @@
 **Not Netflix. But Fire 🔥**
 
 NOTFLIX is a modern movie discovery app built with React. It allows users to search for movies, explore trending titles, and view detailed information about each movie — without subscriptions or clutter.
-
+[Visit Notflix](https://notflix-psi.vercel.app/)
 ---
 
 ## Features
@@ -19,12 +19,6 @@ NOTFLIX is a modern movie discovery app built with React. It allows users to sea
 - **JavaScript (ES6+)**
 - **TMDB API**
 - **CSS**
-
-
-
-## Screenshots
-
-
 
 
 ## What I Learned
